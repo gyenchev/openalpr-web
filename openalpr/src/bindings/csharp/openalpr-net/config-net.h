@@ -196,27 +196,6 @@ namespace openalprnet
 			}
 		}
 
-		property float CharHeightMM {
-			float get()
-			{
-				return this->m_config->charHeightMM;
-			}
-			void set(float value)
-			{
-				this->m_config->charHeightMM = value;
-			}
-		}
-
-		property float CharWidthMM {
-			float get()
-			{
-				return this->m_config->charWidthMM;
-			}
-			void set(float value)
-			{
-				this->m_config->charWidthMM = value;
-			}
-		}
 
 		property float CharWhitespaceTopMM {
 			float get()
@@ -402,6 +381,17 @@ namespace openalprnet
 			void set(float value)
 			{
 				this->m_config->segmentationMaxCharWidthvsAverage = value;
+			}
+		}
+
+		property bool MustMatchPattern {
+			bool get()
+			{
+				return this->m_config->mustMatchPattern;
+			}
+			void set(bool value)
+			{
+				this->m_config->mustMatchPattern = value;
 			}
 		}
 

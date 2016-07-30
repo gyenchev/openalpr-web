@@ -5,20 +5,26 @@ set(lpr_source_files
  alpr.cpp
  alpr_impl.cpp
  config.cpp
+ config_helper.cpp
  detection/detector.cpp
  detection/detectorcpu.cpp
  detection/detectorcuda.cpp
  detection/detectorocl.cpp
  detection/detectorfactory.cpp
  detection/detectormorph.cpp
+ detection/detectormask.cpp
  licenseplatecandidate.cpp
  utility.cpp
- ocr.cpp
+ ocr/tesseract_ocr.cpp
+ ocr/ocr.cpp
+ ocr/ocrfactory.cpp
  postprocess/postprocess.cpp
  postprocess/regexrule.cpp
  binarize_wolf.cpp
- segmentation/charactersegmenter.cpp
- segmentation/verticalhistogram.cpp
+ ocr/segmentation/charactersegmenter.cpp
+ ocr/segmentation/histogram.cpp
+ ocr/segmentation/histogramvertical.cpp
+ ocr/segmentation/histogramhorizontal.cpp
  edges/edgefinder.cpp
  edges/platecorners.cpp
  edges/platelines.cpp
@@ -51,7 +57,7 @@ set_target_properties(openalpr PROPERTIES SOVERSION ${OPENALPR_MAJOR_VERSION})
 
 TARGET_LINK_LIBRARIES(openalpr
   support
-  statedetection
+  ${STATE_DETECTION_LIB}
   ${OpenCV_LIBS}
   ${Tesseract_LIBRARIES}
 )
