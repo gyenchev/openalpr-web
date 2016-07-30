@@ -6,16 +6,16 @@ RUN apt-get -y update && \
 
 ADD webservice /webservice
 
-ADD openalpr /usr/alpr
+ADD openalpr /storage/projects/alpr
 
-RUN cd /usr/alpr/src && \
+RUN cd /storage/projects/alpr/src && \
       mkdir build && \
       cd build && \
       cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_SYSCONFDIR:PATH=/etc .. && \
-      make -j2 && \
+      make && \
       make install
 
-RUN cd /usr/alpr/src/bindings/python && \
+RUN cd /storage/projects/alpr/src/bindings/python && \
       python setup.py install && \
       ./make.sh
 
