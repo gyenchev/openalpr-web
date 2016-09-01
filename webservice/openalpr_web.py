@@ -11,7 +11,8 @@ alpr.set_top_n(20)
 
 class MainHandler(tornado.web.RequestHandler):
     def post(self):
-
+        print('Printing request files')
+        print(self.request.files)
         if 'image' not in self.request.files:
             self.finish('Image parameter not provided')
 
